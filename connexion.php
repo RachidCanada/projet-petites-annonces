@@ -52,4 +52,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
     <p><a href="enregistrement.php">Créer un compte</a></p>
 </body>
-</html>
+</html> 
