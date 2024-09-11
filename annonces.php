@@ -32,7 +32,7 @@ try {
         <ul class="nav navbar-nav">
             <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="annonces.php">Afficher les annonces</a></li>';}?>
             <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="gerer_annonces.php">Gérer mes annonces</a></li>';}?>
-            <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="profil.php">Mon profil</a></li>';}?>
+            <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="profile.php">Mon profil</a></li>';}?>
             <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="deconnexion.php">Déconnexion</a></li>';} ?>
             <?php if(!isset($_SESSION['Courriel'])){echo '<li><a href="connexion.php">login</a></li>';}?>
             <?php if(!isset($_SESSION['Courriel'])){echo '<li><a href="enregistrement.php">s\'inscrire</a></li>';}?>
