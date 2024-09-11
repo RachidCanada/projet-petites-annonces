@@ -34,22 +34,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Connexion - Petites annonces GG</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1>Connexion</h1>
-    <?php if ($erreur): ?>
-        <p style="color:red;"><?php echo $erreur; ?></p>
-    <?php endif; ?>
-    <form method="POST" action="connexion.php">
-        <label for="courriel">Courriel :</label>
-        <input type="email" name="courriel" required>
-        <br><br>
-        <label for="motDePasse">Mot de passe :</label>
-        <input type="password" name="motDePasse" required>
-        <br><br>
-        <input type="submit" value="Se connecter">
-    </form>
-    <p><a href="enregistrement.php">Créer un compte</a></p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3">
+        <a href="annonces.php" class="navbar-brand">AnnnoncesGG</a>
+        <ul class="nav navbar-nav">
+            <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="annonces.php">Afficher les annonces</a></li>';}?>
+            <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="gerer_annonces.php">Gérer mes annonces</a></li>';}?>
+            <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="profile.php">Mon profil</a></li>';}?>
+            <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="deconnexion.php">Déconnexion</a></li>';} ?>
+            <?php if(!isset($_SESSION['Courriel'])){echo '<li><a href="connexion.php">Login</a></li>';}?>
+            <?php if(!isset($_SESSION['Courriel'])){echo '<li><a href="enregistrement.php">Inscrire</a></li>';}?>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Connexion</h1>
+        <?php if ($erreur): ?>
+            <p style="color:red;"><?php echo $erreur; ?></p>
+        <?php endif; ?>
+        <form method="POST" action="connexion.php">
+            <label for="courriel">Courriel :</label>
+            <input type="email" name="courriel" required>
+            <br><br>
+            <label for="motDePasse">Mot de passe :</label>
+            <input type="password" name="motDePasse" required>
+            <br><br>
+            <input type="submit" value="Se connecter">
+        </form>
+        <p><a href="enregistrement.php">Créer un compte</a></p>
+    </div>
+    
 </body>
 </html> 
