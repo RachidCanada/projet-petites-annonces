@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($utilisateur && password_verify($motDePasse, $utilisateur['MotDePasse'])) {
             // Le mot de passe est correct, connexion réussie
             $_SESSION['Courriel'] = $courriel;
+            $_SESSION['NoUtilisateur'] = $utilisateur['NoUtilisateur'];  // save user's ID
             $_SESSION['Nom'] = $utilisateur['Nom'];
             header("Location: annonces.php"); // Rediriger vers la page des annonces
             exit();
