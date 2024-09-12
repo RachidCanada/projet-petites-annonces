@@ -1,20 +1,27 @@
 <?php
-session_start();
-require 'db_connexion.php'; // Connexion à la base de données
+    // Connexion à la base de données
+    require_once 'db_connexion.php';
+    // Demarrer la session
+    session_start();
 
-try {
-    // Récupérer les annonces actives
-    $stmt = $conn->prepare("SELECT a.NoAnnonce, a.DescriptionAbregee, a.Prix, u.Nom, u.Prenom, a.Parution, a.Photo 
-                            FROM annonces a 
-                            JOIN utilisateurs u ON a.NoUtilisateur = u.NoUtilisateur 
-                            WHERE a.Etat = 1 
-                            ORDER BY a.Parution DESC 
-                            LIMIT 10");
-    $stmt->execute();
-    $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erreur lors de la récupération des annonces : " . $e->getMessage());
-}
+    // Vérifier si l'utilisateur est connecté
+    if(!isset($_SESSION['Courriel'])){
+        header("Location: connexion.php");
+    }
+
+    try {
+        // Récupérer les annonces actives
+        $stmt = $conn->prepare("SELECT a.NoAnnonce, a.DescriptionAbregee, a.Prix, u.Nom, u.Prenom, a.Parution, a.Photo 
+                                FROM annonces a 
+                                JOIN utilisateurs u ON a.NoUtilisateur = u.NoUtilisateur 
+                                WHERE a.Etat = 1 
+                                ORDER BY a.Parution DESC 
+                                LIMIT 10");
+        $stmt->execute();
+        $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("Erreur lors de la récupération des annonces : " . $e->getMessage());
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
