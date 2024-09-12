@@ -10,10 +10,13 @@ if (isset($_SESSION['Courriel'])) {
 <head>
     <meta charset="UTF-8">
     <title>Les petites annonces GG</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Bienvenue sur Les petites annonces GG</h1>
-    <p><a href="connexion.php">Connexion</a> ou <a href="enregistrement.php">Créer un compte</a></p>
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+        <h1>Bienvenue sur les petites annonces GG</h1>
+        <p><a href="connexion.php">Connexion</a> ou <a href="enregistrement.php">Créer un compte</a></p>
+    </div>
+    
 </body>
 </html>
