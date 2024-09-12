@@ -9,11 +9,12 @@ if(!isset($_SESSION['Courriel'])){
     header("Location: connexion.php");
 }
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $descriptionAbregee = $_POST['descriptionAbregee'];
     $descriptionComplete = $_POST['descriptionComplete'];
     $prix = $_POST['prix'];
-    $noUtilisateur = 1; // Remplacez par $_SESSION['NoUtilisateur'] si l'utilisateur est connecté
+    $noUtilisateur = $_SESSION['NoUtilisateur']; // Remplacez par $_SESSION['NoUtilisateur'] si l'utilisateur est connecté
 
     // Vérifier que tous les champs obligatoires sont présents
     if (!empty($descriptionAbregee) && !empty($descriptionComplete) && !empty($prix) && !empty($_FILES['photo']['name'])) {
