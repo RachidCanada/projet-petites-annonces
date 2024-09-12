@@ -65,7 +65,7 @@ if (isset($_GET['no'])) {
         $stmt->execute();
 
         // Redirection après la modification
-        header('Location: annonce_detail.php?no=' . $noAnnonce);
+        header('Location: annonces.php');
         exit;
     }
 

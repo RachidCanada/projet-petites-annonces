@@ -31,8 +31,20 @@ if (isset($_GET['no'])) {
             <title>Détail de l'annonce</title>
             <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="css/main.css">
         </head>
         <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3">
+                <a href="annonces.php" class="navbar-brand">AnnnoncesGG</a>
+                <ul class="nav navbar-nav">
+                    <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="annonces.php">Afficher les annonces</a></li>';}?>
+                    <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="gerer_annonces.php">Gérer mes annonces</a></li>';}?>
+                    <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="profile.php">Mon profil</a></li>';}?>
+                    <?php if(isset($_SESSION['Courriel'])){echo '<li><a href="deconnexion.php">Déconnexion</a></li>';} ?>
+                    <?php if(!isset($_SESSION['Courriel'])){echo '<li><a href="connexion.php">login</a></li>';}?>
+                    <?php if(!isset($_SESSION['Courriel'])){echo '<li><a href="enregistrement.php">s\'inscrire</a></li>';}?>
+                </ul>
+            </nav>
             <div class="container">
                 <h1 class="my-4"><?php echo htmlspecialchars($annonce['DescriptionAbregee'], ENT_QUOTES, 'UTF-8'); ?></h1>
                 <img src="photos-annonce/<?php echo htmlspecialchars($annonce['Photo'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image annonce" class="img-fluid mb-3">
