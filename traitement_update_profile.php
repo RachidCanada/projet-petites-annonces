@@ -1,8 +1,13 @@
 <?php 
-    // Connexion à la base de données
-    require_once 'db_connexion.php';
-    // Demarrer la session
-    session_start();
+// Connexion à la base de données
+require_once 'db_connexion.php';
+// Demarrer la session
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if(!isset($_SESSION['Courriel'])){
+    header("Location: connexion.php");
+}
 
     // Verifier si le formulaire a été soumis 
     if($_SERVER["REQUEST_METHOD"] == "POST"){

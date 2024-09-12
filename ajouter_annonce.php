@@ -1,6 +1,13 @@
 <?php
-session_start();
-require 'db_connexion.php'; // Connexion à la base de données
+    // Connexion à la base de données
+    require_once 'db_connexion.php';
+    // Demarrer la session
+    session_start();
+
+    // Vérifier si l'utilisateur est connecté
+    if(!isset($_SESSION['Courriel'])){
+        header("Location: connexion.php");
+    }
 
 ?>
 <!DOCTYPE html>

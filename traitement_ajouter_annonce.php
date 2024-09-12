@@ -1,6 +1,13 @@
 <?php
+// Connexion à la base de données
+require_once 'db_connexion.php';
+// Demarrer la session
 session_start();
-require 'db_connexion.php'; // Connexion à la base de données
+
+// Vérifier si l'utilisateur est connecté
+if(!isset($_SESSION['Courriel'])){
+    header("Location: connexion.php");
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $descriptionAbregee = $_POST['descriptionAbregee'];
